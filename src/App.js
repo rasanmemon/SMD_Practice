@@ -13,8 +13,8 @@ setData([{
 },
 {
   rollnum: 2,
-  name: "Rafiq",
-  address: "Jamshed Road",
+  name: "Ali",
+  address: "Lahore",
 }
 ,]);
 
