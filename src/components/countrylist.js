@@ -6,6 +6,7 @@ const CountryList = () => {
   const addData = () => {
   };
   useEffect(() => {
+    /* eslint-disable  no-useless-concat */
     fetch("https://api.eatachi.co/api/" +  "country")
       .then((response) => {
         return response.json();
