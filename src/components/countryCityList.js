@@ -60,6 +60,7 @@ const CountryCityList = () => {
     });
     console.log(filterSearcher);
     setFilterSearch(filterSearcher);
+    /* eslint-disable  */
   }, [search]);
 
   const onCountryChange = (e) => {
