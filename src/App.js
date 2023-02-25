@@ -1,11 +1,12 @@
 import "./App.css";
-import CountryList from "./components/countrylist";
+import CountryCityList from "./components/countryCityList";
+// import CountryList from "./components/countrylist";
 /* eslint-disable  no-unused-vars */
 import StudentList from "./components/studentList";
 const App = () => {
-  
   return (
-    <CountryList />
+    // <CountryList />
+    <CountryCityList />
     // <StudentList />
   );
 };

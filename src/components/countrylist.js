@@ -3,11 +3,10 @@ import { useEffect, useState } from "react";
 const CountryList = () => {
   const [data, setData] = useState(null);
   const [count, setCount] = useState(0);
-  const addData = () => {
-  };
+
   useEffect(() => {
     /* eslint-disable  no-useless-concat */
-    fetch("https://api.eatachi.co/api/" +  "country")
+    fetch("https://api.eatachi.co/api/" + "country")
       .then((response) => {
         return response.json();
       })
@@ -18,20 +17,18 @@ const CountryList = () => {
         alert(err);
       });
   });
-  useEffect(()=>{
-      setCount(data?.length);
+  useEffect(() => {
+    setCount(data?.length);
+  }, [data]);
 
-  },[data])
-
- 
   return (
     <div className="main">
       <div style={{ color: "blue" }}>Mobile App Class</div>
-      <div style={{ fontSize: 16 }}>Flex direction column</div>
-      <div style={{ paddingTop: 16, paddingBottom: 16 }}>
-        {/* <button onClick={()=>addData()}>Add Data 2</button> */}
+      <div style={{ fontSize: 16 }}>Country List</div>
+      {/* <div style={{ paddingTop: 16, paddingBottom: 16 }}>
+        <button onClick={()=>addData()}>Add Data 2</button>
         <button onClick={addData}>Add Data</button>
-      </div>
+      </div> */}
       <div style={{ fontWeight: "bold", padding: 8 }}>
         Total Students: {count}
       </div>
