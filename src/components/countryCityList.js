@@ -10,7 +10,7 @@ const CountryCityList = () => {
   const [filterSearch, setFilterSearch] = useState();
 
   const onhandleChange = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
 
     setFilterSearch(citiesList);
     setSearch(e.target.value.toLowerCase());
@@ -58,7 +58,7 @@ const CountryCityList = () => {
     const filterSearcher = searcher?.filter(function (element) {
       return element !== null;
     });
-    console.log(filterSearcher);
+    // console.log(filterSearcher);
     setFilterSearch(filterSearcher);
     /* eslint-disable  */
   }, [search]);
@@ -113,12 +113,14 @@ const CountryCityList = () => {
                 </div>
               ))
             : //data & or data?.map
-              citiesList?.map((d, i) => (
-                <div className="row" key={i}>
-                  <div className="col1">{d.CityId}</div>
-                  <div className="col2">{d.Name}</div>
-                </div>
-              ))}
+              citiesList
+                ?.sort((a, b) => (a.Name > b.Name ? 1 : -1))
+                .map((d, i) => (
+                  <div className="row" key={i}>
+                    <div className="col1">{d.CityId}</div>
+                    <div className="col2">{d.Name}</div>
+                  </div>
+                ))}
         </div>
       )}
 
