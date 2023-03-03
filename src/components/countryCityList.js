@@ -49,7 +49,10 @@ const CountryCityList = () => {
   useEffect(() => {
     setFilterSearch(citiesList);
     const searcher = filterSearch?.map((d, i) => {
-      if (d.Name.toLowerCase().startsWith(search)) {
+      if (
+        d.Name.toLowerCase().startsWith(search) ||
+        d.Name.toLowerCase().includes(search)
+      ) {
         return d;
       } else {
         return null;
@@ -92,7 +95,7 @@ const CountryCityList = () => {
       {loading ? (
         <div>loading</div>
       ) : (
-        <div className="table">
+        <>
           <div className="search-box">
             <div>Search Box:</div>
             <input
@@ -101,27 +104,29 @@ const CountryCityList = () => {
               onChange={onhandleChange}
             />
           </div>
-          <div className="header">
-            <div className="col1">City ID</div>
-            <div className="col2">Name</div>
-          </div>
-          {search !== ""
-            ? filterSearch?.map((d, i) => (
-                <div className="row" key={i}>
-                  <div className="col1">{d.CityId}</div>
-                  <div className="col2">{d.Name}</div>
-                </div>
-              ))
-            : //data & or data?.map
-              citiesList
-                ?.sort((a, b) => (a.Name > b.Name ? 1 : -1))
-                .map((d, i) => (
+          <div className="table">
+            <div className="header">
+              <div className="col1">City ID</div>
+              <div className="col2">Name</div>
+            </div>
+            {search !== ""
+              ? filterSearch?.map((d, i) => (
                   <div className="row" key={i}>
                     <div className="col1">{d.CityId}</div>
                     <div className="col2">{d.Name}</div>
                   </div>
-                ))}
-        </div>
+                ))
+              : //data & or data?.map
+                citiesList
+                  ?.sort((a, b) => (a.Name > b.Name ? 1 : -1))
+                  .map((d, i) => (
+                    <div className="row" key={i}>
+                      <div className="col1">{d.CityId}</div>
+                      <div className="col2">{d.Name}</div>
+                    </div>
+                  ))}
+          </div>
+        </>
       )}
 
       {/* <div className="table">
