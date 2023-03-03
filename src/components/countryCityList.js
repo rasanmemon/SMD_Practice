@@ -110,12 +110,14 @@ const CountryCityList = () => {
               <div className="col2">Name</div>
             </div>
             {search !== ""
-              ? filterSearch?.map((d, i) => (
-                  <div className="row" key={i}>
-                    <div className="col1">{d.CityId}</div>
-                    <div className="col2">{d.Name}</div>
-                  </div>
-                ))
+              ? filterSearch
+                  ?.sort((a, b) => (a.Name > b.Name ? 1 : -1))
+                  .map((d, i) => (
+                    <div className="row" key={i}>
+                      <div className="col1">{d.CityId}</div>
+                      <div className="col2">{d.Name}</div>
+                    </div>
+                  ))
               : //data & or data?.map
                 citiesList
                   ?.sort((a, b) => (a.Name > b.Name ? 1 : -1))
